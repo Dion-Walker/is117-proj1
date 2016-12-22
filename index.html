@@ -5,51 +5,97 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title></title>
 
-        <link rel="stylesheet" href="project1.css">
-	
+        <link rel="stylesheet" type = "text/css" href="./css/project1.css">
+		<script language="JavaScript1.2">
+
+			var howOften = 5; //number often in seconds to rotate
+			var current = 0; //start the counter at 0
+			var ns6 = document.getElementById&&!document.all; //detect netscape 6
+
+			// place your images, text, etc in the array elements here
+			var items = new Array();
+				items[0]="<center><a href='#link.htm' ><img alt='image0 (9K)' src=' ./img/ARPAnet.PNG' height='228px' width='420px' border='0' />This was the original logical diagram of ARPANet and all the universities & agencies that are currently connected to it. </a></center>"; //a linked image
+				items[1]="<center><a href='#link.htm'><img alt='image1 (9K)' src='./img/Licklider.jpg' height='228px' width='420px' border='0' />J.C. Licklider is considered one of the founding members of the Internet as well as the visionary behind the World Wide Web.</a></center>"; //a linked image
+				items[2]="<center><a href='#link.htm'><img alt='image2 (9K)' src='./img/Sutherland.jpg' height='228px' width='420px' border='0' />Ivan Sutherland is considered the father of computer graphics and help lead the Internet revolution at while at DARPA.</a></center>"; //a linked image
+				//items[3]="<a href='link.htm'><img alt='image3 (9K)' src='/Images/image3.jpg' height='300' width='300' border='0' /></a>"; //a linked image
+				//items[4]="<a href='link.htm'><img alt='image4 (9K)' src='/Images/image4.jpg' height='300' width='300' border='0' /></a>"; //a linked image
+				//items[5]="<a href='link.htm'><img alt='image5 (18K)' src='/Images/image5.jpg' height='300' width='300' border='0' /></a>"; //a linked image
+			function rotater() {
+				document.getElementById("placeholder").innerHTML = items[current];
+				current = (current==items.length-1) ? 0 : current + 1;
+				setTimeout("rotater()",howOften*1000);
+			}
+
+			function rotater() {
+				if(document.layers) {
+					document.placeholderlayer.document.write(items[current]);
+					document.placeholderlayer.document.close();
+				}
+				if(ns6)document.getElementById("placeholderdiv").innerHTML=items[current]
+					if(document.all)
+						placeholderdiv.innerHTML=items[current];
+
+				current = (current==items.length-1) ? 0 : current + 1; //increment or reset
+				setTimeout("rotater()",howOften*1000);
+			}
+			window.onload=rotater;
+			//-->
+		</script>
 	</head>
 	<body>
 		<div id= "wrapper">
 			<div id= "header">
 				<div id = "logo">
-					<h2> Network History </h2>
+					<h2><a href= "http://web.njit.edu/~dw225/IS 117/project1/index.html">Network History</a></h2>
 				</div>
 			<div id= "menu">
 				<ul>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/pots.html">POTS</a></li>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/packetswitch.html">Packet Switching</a></li>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/ethernet.html">Ethernet</a></li>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/devices.html">Network Devices</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/pots.html">POTS</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/packetswitch.html">Packet Switching</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/ethernet.html">Ethernet</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/devices.html">Network Devices</a></li>
 				</ul>
 			</div>
-		</div>
-		<div id= "banner">
-			<p>
-				When most people think of the Internet they will assume you are talking about websites, video streaming services, music radios
-				and social media forums. The idea of an internetwork of computers was the vision of a man named J.C. Licklider. He envision a
-				network of computers that can communicate to each no matter where it is located or who manufactured the machine. He created the 
-				Intergalatic Computer Network, which at the time connected computers over existing POTS lines then was eventually upgrade to coaxial
-				cable.
-				<br>
-				ARPANet was the evolution to thet Intergalatic Computer Network and allowed the government enitity know as ARAP (Advanced Research 
-				Projects Agency) to work on network computers that were located throughout the country. Not only did ARPANet provide network communication
-				it also provided a robust communication outlet in the event that the nation was attacked data communication between all computers was not halted.
-			</p>
-			<img src="arpanet.png" alt="ARPANet" style="width:440px;height:228px;">
-		</div>
-		<div id= "info">
-			<div id= "info1">
-				<p>
-				The Internet was later opened to the public by Congress in 1992.
-				</p>
 			</div>
-			<div id= "info2">
+			<div id= "banner">
 				<p>
-				The World Wide Web begins and starts to gain popular during its early years.
+					<strong><u>The Concept of the Internet</u></strong><br><br>
+				
+					When most people think of the Internet they will assume you are talking about websites, video streaming services, music radios
+					and social media forums. The idea of an internetwork of computers was the vision of a man named J.C. Licklider. He envision a
+					network of computers that can communicate to each no matter where it is located or who manufactured the machine. He created the 
+					Intergalatic Computer Network, which at the time connected computers over existing POTS lines then was eventually upgrade to coaxial
+					cable.
+					<br><br>
+					ARPANet was the evolution to thet Intergalatic Computer Network and allowed the government enitity know as ARAP (Advanced Research 
+					Projects Agency) to work on network computers that were located throughout the country. Not only did ARPANet provide network communication
+					it also provided a robust communication outlet in the event that the nation was attacked data communication between all computers was not halted.
 				</p>
+				<div id="placeholderdiv"></div> 
 			</div>
-			<div id= "info3">
-			<p>Today the Internet is used by a billion plus people a day</p>
+			<div id= "info">
+				<div id= "info1">
+					<p>
+					The Internet was later opened to the public by Congress in 1992.
+					</p>
+				</div>
+				<div id= "info2">
+					<p>
+					The World Wide Web begins and starts to gain popular during its early years.
+					</p>
+				</div>
+				<div id= "info3">
+				<p>Today the Internet is used by a billion plus people a day</p>
+				</div>
+			</div>
+			<div id= "footer">
+				<ul>
+					<center>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/about.html">About Us</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/contact.html">Contact Us</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/policy.html">Private Policy</a></li>
+					</center>
+				</ul>
 			</div>
 		</div>
 	</body>

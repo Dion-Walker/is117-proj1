@@ -5,44 +5,76 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title></title>
 
-        <link rel="stylesheet" href="project1.css">
+        <link rel="stylesheet" type = "text/css" href="./css/project1.css">
+		<script language="JavaScript1.2">
+
+			var howOften = 5; //number often in seconds to rotate
+			var current = 0; //start the counter at 0
+			var ns6 = document.getElementById&&!document.all; //detect netscape 6
+
+			// place your images, text, etc in the array elements here
+			var items = new Array();
+				items[0]="<center><a href='#link.htm' ><img alt='image0 (9K)' src=' ./img/baran.jpg' height='228px' width='420px' border='0' />Paul Baran</a></center>"; //a linked image
+				items[1]="<center><a href='#link.htm'><img alt='image1 (9K)' src='./img/davies.jpg' height='228px' width='420px' border='0' />Donald Davies</a><center>"; //a linked image
+				items[2]="<center><a href='#link.htm'><img alt='image2 (9K)' src='./img/psn.png' height='228px' width='420px' border='0' />Diagram of a Packet Switch Network</a><center>"; //a linked image
+				//items[3]="<a href='link.htm'><img alt='image3 (9K)' src='/Images/image3.jpg' height='300' width='300' border='0' /></a>"; //a linked image
+				//items[4]="<a href='link.htm'><img alt='image4 (9K)' src='/Images/image4.jpg' height='300' width='300' border='0' /></a>"; //a linked image
+				//items[5]="<a href='link.htm'><img alt='image5 (18K)' src='/Images/image5.jpg' height='300' width='300' border='0' /></a>"; //a linked image
+			function rotater() {
+				document.getElementById("placeholder").innerHTML = items[current];
+				current = (current==items.length-1) ? 0 : current + 1;
+				setTimeout("rotater()",howOften*1000);
+			}
+
+			function rotater() {
+				if(document.layers) {
+					document.placeholderlayer.document.write(items[current]);
+					document.placeholderlayer.document.close();
+				}
+				if(ns6)document.getElementById("placeholderdiv").innerHTML=items[current]
+					if(document.all)
+						placeholderdiv.innerHTML=items[current];
+
+				current = (current==items.length-1) ? 0 : current + 1; //increment or reset
+				setTimeout("rotater()",howOften*1000);
+			}
+			window.onload=rotater;
+			//-->
+		</script>
 	
 	</head>
-	<!-- This will be about Internet communication topics will include the following history of network communication,
-	networking hardware, TCP/IP & DNS, OSI/TCP/IP models, other protocols
-	
-	Markdown - DevOp -->
+
 	<body>
-	
-		<!--<h2>Where did the Internet come from?</h2> -->
 
 		<div id= "wrapper">
 			<div id= "header">
 				<div id = "logo">
-					<h2> Network History </h2>
+					<h2><a href= "http://web.njit.edu/~dw225/IS 117/project1/index.html">Network History</a></h2>
 				</div>
 			<div id= "menu">
 				<ul>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/index.html">Home</a></li>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/pots.html">POTS</a></li>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/ethernet.html">Ethernet</a></li>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/devices.html">Network Devices</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/pots.html">POTS</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/packetswitch.html">Packet Switching</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/ethernet.html">Ethernet</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/devices.html">Network Devices</a></li>
 				</ul>
 			</div>
 		</div>
 		<div id= "banner">
 			<p>
+				<u>The Framework of the Internet</u><br><br>
 				Today we can get anything and everything with the click of a button but image if suddenly the network connection between your favorite internet 
 				store and your Internet provider was lost would happen? Actually nothing will happen thanks to packet switching. Packet switching was the brain child 
 				of two men, Paul Baran and Donald Davies. They thought of a way to transport large information in smaller chunks aka packets which were then routed to 
 				the fastest and most reliable path to the destination.
-				<br>
+				<br /><br />
 				Packet switching was so efficient at networking that it was adopted immediately by the US Air Force since it was able to provide the following three key 
 				elements: it allowed for a decentralized network which could communicate over several network paths thus making it robust, it uses a form of send and receive 
 				for data like a post office and broke large information into smaller pieces to be put together once it was received.
 			</p>
-			<img src="psn.png" alt="Packet Switching Networking" style="width:440px;height:228px;">
-		</div>
+			<div id="placeholderdiv"></div> 
+			<!--<img src="psn.PNG" alt="Packet Switching Networking" style="width:440px;height:228px;">-->
+		</div><!--
 		<div id= "info">
 			<div id= "info1">
 				<p>
@@ -59,6 +91,15 @@
 					TCP/IP and Ethernet use packet switching for data communication.
 				</p>
 			</div>
+		</div>-->
+		<div id= "footer">
+			<ul>
+				<center>
+				<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/about.html">About Us</a></li>
+				<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/contact.html">Contact Us</a></li>
+				<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/policy.html">Private Policy</a></li>
+				</center>
+			</ul>
 		</div>
 	</body>
 	

@@ -5,8 +5,42 @@
         <meta http-equiv="x-ua-compatible" content="ie=edge">
         <title></title>
 
-        <link rel="stylesheet" href="project1.css">
-	
+        <link rel="stylesheet" type = "text/css" href="./css/project1.css">
+				<script language="JavaScript1.2">
+
+			var howOften = 5; //number often in seconds to rotate
+			var current = 0; //start the counter at 0
+			var ns6 = document.getElementById&&!document.all; //detect netscape 6
+
+			// place your images, text, etc in the array elements here
+			var items = new Array();
+				items[0]="<center><a href='#link.htm' ><img alt='image0 (9K)' src=' ./img/hub.JPG' height='228px' width='420px' border='0' />Hubs were the very first networking devices. They allowed multiple computers to be connected to the network at the same time but caused broadcast storms which slowed the network down.</a></center>"; //a linked image
+				items[1]="<center><a href='#link.htm'><img alt='image1 (9K)' src='./img/switch.jpg' height='228px' width='420px' border='0' />Switches were the second and improved versions of hubs and allowed computers to communicate without causing the to experience latency issues.</a></center>"; //a linked image
+				items[2]="<center><a href='#link.htm'><img alt='image2 (9K)' src='./img/router.jpg' height='228px' width='420px' border='0' />Routers are the third iteration of network devices that work similar to switches but with the addition of allowing inter-communication between different networks.</a></center>"; //a linked image
+				//items[3]="<a href='link.htm'><img alt='image3 (9K)' src='/Images/image3.jpg' height='300' width='300' border='0' /></a>"; //a linked image
+				//items[4]="<a href='link.htm'><img alt='image4 (9K)' src='/Images/image4.jpg' height='300' width='300' border='0' /></a>"; //a linked image
+				//items[5]="<a href='link.htm'><img alt='image5 (18K)' src='/Images/image5.jpg' height='300' width='300' border='0' /></a>"; //a linked image
+			function rotater() {
+				document.getElementById("placeholder").innerHTML = items[current];
+				current = (current==items.length-1) ? 0 : current + 1;
+				setTimeout("rotater()",howOften*1000);
+			}
+
+			function rotater() {
+				if(document.layers) {
+					document.placeholderlayer.document.write(items[current]);
+					document.placeholderlayer.document.close();
+				}
+				if(ns6)document.getElementById("placeholderdiv").innerHTML=items[current]
+					if(document.all)
+						placeholderdiv.innerHTML=items[current];
+
+				current = (current==items.length-1) ? 0 : current + 1; //increment or reset
+				setTimeout("rotater()",howOften*1000);
+			}
+			window.onload=rotater;
+			//-->
+		</script>
 	</head>
 
 	<body>
@@ -14,27 +48,30 @@
 		<div id= "wrapper">
 			<div id= "header">
 				<div id = "logo">
-					<h2> Network History </h2>
+					<h2><a href= "http://web.njit.edu/~dw225/IS 117/project1/index.html">Network History</a></h2>
 				</div>
 			<div id= "menu">
 				<ul>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/index.html">Home</a></li>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/pots.html">POTS</a></li>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/packetswitch.html">Packet Switching</a></li>
-					<li><a href= "http://web.njit.edu/~dw225/is 117/ethernet.html">Ethernet</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/pots.html">POTS</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/packetswitch.html">Packet Switching</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/ethernet.html">Ethernet</a></li>
+					<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/devices.html">Network Devices</a></li>
 				</ul>
 			</div>
 		</div>
 		<div id= "banner">
 			<p>
+				<strong><u>The Muscle Behind the Internet</u></strong><br><br>
 				With all the data flowing around the world how is it that the data is getting to the right places? Its all thanks to to networking devices such as switches and routers.
 				The very versions of networking equipment only repeated data it heard on side to the other, which for its time was great but came at a huge cost lots of needed data was 
 				slowing the network down. To solve this problem, bridges (and their multi port relative) were introduced. What they did is learn who was connected to them and only passed 
 				data to the computers it only knew and discarded the rest. This was great since allow for faster communication but caused a new problem; a computer that is connected 
 				two switches over will not have it data sent outside its immediate area. To solve this problem routers were invented, they combined the principle of switches with addition 
-				transporting info across multiple networks. Routers and switches are the main backbone to any network, without them the network will cease to exist. s			</p>
-			<img src="routers.png" alt="Devices" style="width:440px;height:228px;">
-		</div>
+				transporting info across multiple networks. Routers and switches are the main backbone to any network, without them the network will cease to exist.
+				</p>
+			<div id="placeholderdiv"></div>
+			<!--<img src="routers.PNG" alt="Devices" style="width:440px;height:228px;">-->
+		</div><!--
 		<div id= "info">
 			<div id= "info1">
 				<p>
@@ -51,6 +88,15 @@
 					All wireless access points must connect to a router or switch.
 				</p>
 			</div>
+		</div>-->
+		<div id= "footer">
+			<ul>
+				<center>
+				<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/about.html">About Us</a></li>
+				<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/contact.html">Contact Us</a></li>
+				<li><a href= "http://web.njit.edu/~dw225/IS 117/project1/policy.html">Private Policy</a></li>
+				</center>
+			</ul>
 		</div>
 	</body>
 	
